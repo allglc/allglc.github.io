@@ -3,21 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Machine Learning Researcher</title>
+    <title>Adrien Le Coz</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        a {
+            text-decoration: none;
+            color: #0366d6;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        .paper-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-right: 10px;
+            color: #0366d6;
+        }
+
+        .paper-link:hover {
+            color: #0056b3;
+        }
+
+        .publication {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .publication-content {
+            flex: 1;
+        }
+
+        .publication-image-container {
+            flex: 0 0 200px;
+            margin-left: 20px;
+        }
+
+        .publication-image {
+            width: 100%;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .publication-image:hover {
+            transform: scale(1.05);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            overflow: auto;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90vh;
+            margin-top: 2%;
+        }
+
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 10px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .publication {
+                flex-direction: column;
+            }
+
+            .publication-image-container {
+                margin-left: 0;
+                margin-top: 15px;
+                flex: 0 0 auto;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="container">
             <div class="profile">
-                <img src="images/profile-photo.jpg" alt="Your Name" class="profile-photo">
-                <h1>Your Name</h1>
-                <p class="title">Ph.D. in Machine Learning</p>
+                <img src="images/moi.jpg" alt="Adrien Le Coz" class="profile-photo">
+                <h1>Adrien Le Coz</h1>
+                <p class="title">PhD in Machine Learning</p>
                 <div class="social-links">
-                    <a href="https://linkedin.com/in/your-profile" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://scholar.google.com/citations?user=your-id" target="_blank"><i class="fas fa-graduation-cap"></i></a>
-                    <a href="https://github.com/your-username" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/adrien-lecoz/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://scholar.google.com/citations?user=z-0Z-AwAAAAJ&hl=fr" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="https://github.com/allglc" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
             </div>
         </div>
@@ -27,22 +122,134 @@
         <div class="container">
             <section id="about">
                 <h2>About Me</h2>
-                <p>I recently completed my Ph.D. in Machine Learning from [University Name]. My research focuses on [brief description of your research interests and specializations].</p>
+                <p>Currently looking for an AI Research Scientist/Engineer position!
+                    <BR><BR>
+                    I recently completed my PhD in Machine Learning from <a href="https://www.universite-paris-saclay.fr/">Université Paris-Saclay</a>. I was supervised by <a href="https://stepherbin.github.io/">Stéphane Herbin</a> (<a href="https://www.onera.fr/">ONERA</a>)
+                    and <a href="https://www.linkedin.com/in/faouzi-adjed-26135864">Faouzi Adjed</a> (<a href="https://www.irt-systemx.fr/">IRT SystemX</a>).
+                    My research focused on the characterizing a reliability domain for image classifiers. Before that, I worked 2.5 years as a Research Engineer/Data Scientist at <a href="https://china.edf.com/en">EDF China</a>, deploying a fault detection system and deep reinforcement learning agents for district heating systems.
+
+                </p>
             </section>
 
-            <section id="publications">
-                <h2>Publications</h2>
+            <section id="My thesis">
+                <h2>My thesis</h2>
                 <div class="publications-grid">
-                    <!-- Publication Template -->
                     <article class="publication">
-                        <h3>Paper Title</h3>
-                        <p class="authors">Authors: Your Name, Co-author 1, Co-author 2</p>
-                        <p class="venue">Conference/Journal Name, Year</p>
-                        <p class="abstract">Brief abstract of the paper goes here. This should be a concise summary of your research and findings.</p>
-                        <div class="paper-links">
-                            <a href="#" class="paper-link"><i class="fas fa-file-pdf"></i> PDF</a>
-                            <a href="#" class="paper-link"><i class="fas fa-link"></i> DOI</a>
-                            <a href="#" class="paper-link"><i class="fas fa-code"></i> Code</a>
+                        <div class="publication-content">
+                            <h3>Characterization of a Reliability Domain for Image Classifiers</h3>
+                            <p class="abstract">The goal of my thesis was to explore methods for defining a reliability domain that would clarify the conditions under which a model is trustworthy. Three aspects have been considered:
+                                <li><strong>Qualitative:</strong> Generating synthetic extreme examples helps illustrate the limits of a classifier and better understand what causes it to fail.</li>
+                                <li><strong>Quantitative:</strong> Selective classification allows the model to abstain when uncertain, and calibration improves uncertainty quantification.</li>
+                                <li><strong>Semantic:</strong> Multimodal models can provide textual descriptions of images likely to lead to incorrect or, conversely, to correct predictions.</li>
+                            </p>
+                            <div class="paper-links">
+                                <a href="https://theses.fr/2024UPASG109" class="paper-link"><i class="fas fa-link"></i> PDF</a>
+                                <a href="https://github.com/allglc/phd" class="paper-link"><i class="fas fa-code"></i> Code</a>
+                            </div>
+                        </div>
+                        <div class="publication-image-container">
+                            <img src="images/thesis.png" alt="Thesis Overview" class="publication-image" onclick="openModal(this.src)">
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="publications-phd">
+                <h2>Publications during my PhD</h2>
+                <div class="publications-grid">
+                    <article class="publication">
+                        <div class="publication-content">
+                            <h3>Confidence Calibration of Classifiers with Many Classes</h3>
+                            <p class="authors">Adrien Le Coz, Stéphane Herbin, Faouzi Adjed</p>
+                            <p class="venue">NeurIPS 2024</p>
+                            <p class="abstract">We transform the problem of calibrating a multiclass classifier into calibrating a single surrogate binary classifier and show that it significantly improves existing calibration methods.</p>
+                            <div class="paper-links">
+                                <a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/8df80d7115a55eb81010c967a247b1ae-Abstract-Conference.html" class="paper-link"><i class="fas fa-link"></i> PDF</a>
+                                <a href="https://github.com/allglc/tva-calibration" class="paper-link"><i class="fas fa-code"></i> Code</a>
+                            </div>
+                        </div>
+                        <div class="publication-image-container">
+                            <img src="images/neurips2024.png" alt="NeurIPS 2024 Paper Overview" class="publication-image" onclick="openModal(this.src)">
+                        </div>
+                    </article>
+
+                    <article class="publication">
+                        <div class="publication-content">
+                            <h3>Efficient Exploration of Image Classifier Failures with Bayesian Optimization and Text-to-Image Models</h3>
+                            <p class="authors">Adrien Le Coz, Houssem Ouertatani, Stéphane Herbin, Faouzi Adjed</p>
+                            <p class="venue">Generative Models for Computer Vision – CVPR 2024 Workshop</p>
+                            <p class="abstract">We propose an image classifier benchmarking method as an iterative process that alternates image generation, classifier evaluation, and attribute selection. This method efficiently explores the attributes that ultimately lead to poor behavior.</p>
+                            <div class="paper-links">
+                                <a href="https://arxiv.org/abs/2405.02332" class="paper-link"><i class="fas fas fa-link"></i> PDF</a>
+                            </div>
+                        </div>
+                        <div class="publication-image-container">
+                            <img src="images/cvpr2024.png" alt="CVPR 2024 Paper Overview" class="publication-image" onclick="openModal(this.src)">
+                        </div>
+                    </article>
+
+                    <article class="publication">
+                        <div class="publication-content">
+                            <h3>Explaining an image classifier with a generative model conditioned by uncertainty</h3>
+                            <p class="authors">Adrien Le Coz, Stéphane Herbin, Faouzi Adjed</p>
+                            <p class="venue">Uncertainty meets Explainability – ECML-PKDD 2023 Workshop</p>
+                            <p class="abstract">We propose to condition a generative model by a given image classifier uncertainty in order to analyze and explain its behavior.</p>
+                            <div class="paper-links">
+                                <a href="https://arxiv.org/abs/2410.13871" class="paper-link"><i class="fas fas fa-link"></i> PDF</a>
+                            </div>
+                        </div>
+                        <div class="publication-image-container">
+                            <img src="images/ecml2023.png" alt="ECML 2023 Paper Overview" class="publication-image" onclick="openModal(this.src)">
+                        </div>
+                    </article>
+
+                    <article class="publication">
+                        <div class="publication-content">
+                            <h3>Leveraging generative models to characterize the failure conditions of image classifiers</h3>
+                            <p class="authors">Adrien Le Coz, Stéphane Herbin, Faouzi Adjed</p>
+                            <p class="venue">Artificial Intelligence Safety – IJCAI-ECAI 2022 Workshop</p>
+                            <p class="abstract">We characterize the failure conditions of image classifiers and generate corner cases by expressing failure conditions as directions in the latent space of StyleGAN2.</p>
+                            <div class="paper-links">
+                                <a href="https://arxiv.org/abs/2410.12814" class="paper-link"><i class="fas fas fa-link"></i> PDF</a>
+                            </div>
+                        </div>
+                        <div class="publication-image-container">
+                            <img src="images/ijcai2022.png" alt="IJCAI 2022 Paper Overview" class="publication-image" onclick="openModal(this.src)">
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="publications-before-phd">
+                <h2>Publications before my PhD</h2>
+                <div class="publications-grid">
+                    <article class="publication">
+                        <div class="publication-content">
+                            <h3>Towards optimal district heating temperature control in China with deep reinforcement learning</h3>
+                            <p class="authors">Adrien Le Coz, Tahar Nabil, Francois Courtot</p>
+                            <p class="venue">Tackling Climate Change with Machine Learning – NeurIPS 2020 Workshop</p>
+                            <p class="abstract">We propose a deep reinforcement learning agent to optimize the temperature control of district heating systems in China. The agent has been tested on a real-world system.</p>
+                            <div class="paper-links">
+                                <a href="https://arxiv.org/abs/2012.09508" class="paper-link"><i class="fas fas fa-link"></i> PDF</a>
+                            </div>
+                        </div>
+                        <div class="publication-image-container">
+                            <img src="images/neurips2020.png" alt="NeurIPS 2020 Paper Overview" class="publication-image" onclick="openModal(this.src)">
+                        </div>
+                    </article>
+
+                    <article class="publication">
+                        <div class="publication-content">
+                            <h3>Machine learning based design of a supercritical CO2 concentrating solar power plant</h3>
+                            <p class="authors">Tahar Nabil, Yann Le Moullec, Adrien Le Coz</p>
+                            <p class="venue">European supercritical CO2 Conference 2019</p>
+                            <p class="abstract"> In an approach similar in principle to current LLMs, we represent thermodynamic power cycles as sequences of strings and train a recurrent neural network to predict the next character of the sequence. The network is then used to autoregressively sample new cycles.</p>
+                            <div class="paper-links">
+                                <a href="https://duepublico2.uni-due.de/receive/duepublico_mods_00048885" class="paper-link"><i class="fas fas fa-link"></i> PDF</a>
+                            </div>
+                        </div>
+                        <div class="publication-image-container">
+                            <img src="images/sco2019.png" alt="SCO2 2019 Paper Overview" class="publication-image" onclick="openModal(this.src)">
                         </div>
                     </article>
                 </div>
@@ -50,12 +257,41 @@
         </div>
     </main>
 
+    <!-- Modal for zoomed images -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
     <footer>
         <div class="container">
-            <p>&copy; <span id="current-year"></span> Your Name. All rights reserved.</p>
+            <p>&copy; <span id="current-year"></span> Adrien Le Coz. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Modal functionality
+        function openModal(imgSrc) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            modal.style.display = "block";
+            modalImg.src = imgSrc;
+        }
+
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+
+        // Close modal when pressing escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html> 
